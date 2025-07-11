@@ -1,5 +1,7 @@
 import React from 'react';
-import Products from './products.js';
+import {products} from '../../products.js'
+import { Product } from './product.js';
+import './shop.css';
 
 
 export const Shop = () => {
@@ -7,12 +9,12 @@ export const Shop = () => {
         <div className = "shop">
             <h1>Shop Page</h1>
             <div className="products">
-                {Products.map((item)=>{
+                {products.map((item)=> (
                     <Product data={item} />
 
-                })}
-
+                ))}
             </div>
+            
          </div>    
         
     )
