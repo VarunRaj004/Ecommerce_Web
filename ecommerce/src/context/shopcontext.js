@@ -18,6 +18,8 @@ export const ShopContextProvider = (props) => {
 
     const [cart,setCart] = useState(getCart());
 
+    
+
     const addToCart = (itemId) => {
         setCart((prev) => ({...prev , [itemId]:prev[itemId]+1}))
     }
@@ -26,7 +28,11 @@ export const ShopContextProvider = (props) => {
     setCart((prev) => ({...prev , [itemId]:prev[itemId]-1}))
     }
 
-    const passValue = {cart , addToCart, rmvFromCart};
+    const updateCartItem = (newAmt , itemId) => {
+        setCart((prev) => ({...prev , [itemId] : newAmt}))
+    }
+
+    const passValue = {cart , addToCart, rmvFromCart , updateCartItem};
     return (
         <ShopContext.Provider value={passValue}>{props.children}</ShopContext.Provider>
     )
