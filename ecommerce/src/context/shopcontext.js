@@ -18,7 +18,7 @@ export const ShopContextProvider = (props) => {
 
     const [cart,setCart] = useState(getCart());
 
-    
+
 
     const addToCart = (itemId) => {
         setCart((prev) => ({...prev , [itemId]:prev[itemId]+1}))
@@ -32,7 +32,18 @@ export const ShopContextProvider = (props) => {
         setCart((prev) => ({...prev , [itemId] : newAmt}))
     }
 
-    const passValue = {cart , addToCart, rmvFromCart , updateCartItem};
+    const getTotal = () =>{
+        let totalAmt = 0;
+        for (const item in cart){
+            if(cart[item] > 0 ){
+                let itemInfo = products.find((products) => (products.id === Number(item)))
+                totalAmt += cart[item] * itemInfo.price;
+            }
+        }
+        return totalAmt;
+    }
+
+    const passValue = {cart , addToCart, rmvFromCart , updateCartItem ,getTotal};
     return (
         <ShopContext.Provider value={passValue}>{props.children}</ShopContext.Provider>
     )
