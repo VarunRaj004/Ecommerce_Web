@@ -5,6 +5,8 @@ import { Shop } from './pages/shop/shop';
 import {Cart} from './pages/cart/cart';
 import { ShopContextProvider } from './context/shopcontext';
 import { LoginForm } from './components/LoginForm';
+import { Profile } from './pages/Profile';
+import { Navigate } from 'react-router-dom';
 
 function App() {
   return (
@@ -13,9 +15,11 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/login" element={<LoginForm/>} />
-            <Route path="/" element ={<Shop />} />
+            <Route path="/" element={<Navigate to = '/login' />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/shop" element ={<Shop />} />
             <Route path="/cart" element={<Cart />}/>
+            <Route path = '/profile' element={<Profile />} />
           </Routes>
         </Router>
       </ShopContextProvider>

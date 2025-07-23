@@ -16,7 +16,7 @@ export const LoginForm = () => {
         { withCredentials: true } // Important for cookies/session
       );
       alert(res.data.message);
-      navigate('/');
+      navigate('/shop');
     } catch (err) {
       alert(err.response?.data?.error || 'Login failed');
     }
