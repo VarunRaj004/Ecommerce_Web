@@ -11,6 +11,7 @@ export const Navbar = () => {
                 <Link to="/cart">
                 <ShoppingCart size = {22} />
                 </Link>
+                <Link path to='/profile'>Profile</Link>'
             </div>
         </div>
     );
