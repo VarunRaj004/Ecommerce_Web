@@ -22,7 +22,7 @@ exports.register = async (req,res) => {
 }
 
 exports.profile = async (req,res) => {
-    if(!req.session.userId) return res.status(401).send({message:"Unauthorized Access"});
+    if(!req.session.userId) return res.status(401).send({message:"Un Access"});
     const user = await User.findById(req.session.userId).select('-password');
     if(!user) return res.status(404).send({message:"User Not Found"});
 
